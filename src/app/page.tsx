@@ -240,7 +240,7 @@ export default function Home() {
             <div className="w-64 h-48 flex-shrink-0">
               <div className="bg-gradient-to-br from-[var(--gray-belt)] to-[var(--black-belt)] border-4 border-[var(--red-belt)] rounded-2xl flex flex-col items-center justify-center shadow-xl w-full h-full p-0 overflow-hidden">
                 <div className="w-full h-full flex items-center justify-center overflow-hidden">
-                  <Image
+          <Image
                     src="/images/faixa-preta-energia.png"
                     alt="Ícone WhatsApp e PDF"
                     width={256}
@@ -339,7 +339,7 @@ export default function Home() {
           </h2>
           <div className="flex justify-center mb-8">
             <div className="rounded-2xl overflow-hidden border-4 border-[var(--red-belt)] shadow-xl bg-[var(--black-belt)] w-auto h-auto flex items-center justify-center">
-              <Image
+          <Image
                 src="/images/faixa-preta-energia.png"
                 alt="Imagem do produto Gás Infinito"
                 width={520}
@@ -452,7 +452,7 @@ export default function Home() {
               <button onClick={closeModal} className="absolute top-4 right-4 text-white text-3xl font-black bg-black/40 rounded-full p-2 hover:bg-[var(--red-belt)]/80 transition-all">×</button>
               <button onClick={prevImg} className="absolute left-4 top-1/2 -translate-y-1/2 text-white text-4xl font-black bg-black/40 rounded-full p-2 hover:bg-[var(--red-belt)]/80 transition-all">&#60;</button>
               <div className="rounded-2xl overflow-hidden border-4 border-[var(--red-belt)] shadow-2xl bg-[var(--black-belt)] flex items-center justify-center">
-                <Image
+          <Image
                   src={galeriaImgs[modalIdx]}
                   alt={`Galeria ${modalIdx + 1}`}
                   width={600}
