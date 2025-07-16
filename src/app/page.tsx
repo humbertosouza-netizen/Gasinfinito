@@ -2,9 +2,15 @@
 import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 
-function Section({ children, className = "" }: { children: React.ReactNode; className?: string }) {
+type SectionProps = React.HTMLAttributes<HTMLElement> & {
+  children: React.ReactNode;
+};
+
+function Section({ children, className = "", ...rest }: SectionProps) {
   return (
-    <section className={`w-full max-w-7xl mx-auto px-6 py-20 ${className}`}>{children}</section>
+    <section className={`w-full max-w-7xl mx-auto px-6 py-20 ${className}`} {...rest}>
+      {children}
+    </section>
   );
 }
 
