@@ -21,17 +21,6 @@ function Card({ children, className = "", gradient = false }: { children: React.
   );
 }
 
-function ImageHolder({ alt, file, className }: { alt: string; file: string; className?: string }) {
-  return (
-    <div className={`bg-gradient-to-br from-[var(--gray-belt)] to-[var(--black-belt)] border-4 border-[var(--red-belt)] rounded-2xl flex items-center justify-center shadow-xl ${className || ''}`.trim()} style={{minHeight: 180}}>
-      <div className="text-center">
-        <span className="text-[var(--red-belt)] font-bold text-lg opacity-80 uppercase tracking-widest block">{alt}</span>
-        <span className="text-xs text-[var(--white-belt)] opacity-60 mt-2 block">{file}</span>
-      </div>
-    </div>
-  );
-}
-
 function FloatingCard({ children, className = "" }: { children: React.ReactNode; className?: string }) {
   return (
     <div className={`bg-gradient-to-br from-[var(--gray-belt)]/90 via-[var(--black-belt)]/80 to-[var(--gray-belt)]/90 border border-[var(--red-belt)]/30 rounded-3xl shadow-2xl px-8 py-6 text-white backdrop-blur-xl hover:border-[var(--red-belt)]/60 transition-all duration-500 ${className}`}>
@@ -415,7 +404,7 @@ export default function Home() {
                   </div>
                   <div className="flex items-center gap-3 p-3 rounded-xl bg-white/5">
                     <div className="w-2 h-2 min-w-[8px] min-h-[8px] rounded-full bg-[var(--red-belt)]"></div>
-                    <span className="text-lg">Autor do e-book "Guia Extraordinário de Alto Rendimento para Jiu-Jitsu"</span>
+                    <span className="text-lg">Autor do e-book &quot;Guia Extraordinário de Alto Rendimento para Jiu-Jitsu&quot;</span>
                   </div>
                   <div className="flex items-center gap-3 p-3 rounded-xl bg-white/5">
                     <div className="w-2 h-2 min-w-[8px] min-h-[8px] rounded-full bg-[var(--red-belt)]"></div>
