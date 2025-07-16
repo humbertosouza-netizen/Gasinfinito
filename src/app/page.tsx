@@ -8,14 +8,14 @@ function Section({ children, className = "" }: { children: React.ReactNode; clas
   );
 }
 
-function Card({ children, className = "", gradient = false }: { children: React.ReactNode; className?: string; gradient?: boolean }) {
+function Card({ children, className = "", gradient = false, id }: { children: React.ReactNode; className?: string; gradient?: boolean; id?: string }) {
   const baseClasses = "rounded-3xl shadow-2xl border border-white/10 backdrop-blur-lg transition-all duration-500 hover:scale-[1.02] hover:shadow-3xl";
   const bgClasses = gradient 
     ? "bg-gradient-to-br from-[var(--gray-belt)]/40 via-[var(--black-belt)]/60 to-[var(--gray-belt)]/40" 
     : "bg-[var(--gray-belt)]/30";
   
   return (
-    <div className={`${baseClasses} ${bgClasses} ${className}`}>
+    <div id={id} className={`${baseClasses} ${bgClasses} ${className}`}>
       {children}
     </div>
   );
@@ -194,8 +194,8 @@ export default function Home() {
       </Section>
 
       {/* What is the Program */}
-      <Section className="relative">
-        <Card id="oque-e" className="p-12 text-center scroll-mt-24" gradient>
+      <Section id="oque-e" className="relative">
+        <Card className="p-12 text-center scroll-mt-24" gradient>
           <h2 className="text-3xl sm:text-4xl font-black text-white mb-8 uppercase tracking-wider">
             O que é a Planilha de Treino do <span className="text-[var(--red-belt)]">GÁS INFINITO</span>?
           </h2>
