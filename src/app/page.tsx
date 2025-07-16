@@ -471,7 +471,7 @@ export default function Home() {
               title="Instagram de Lúcio Flávio"
               width="400"
               height="480"
-              allowtransparency="true"
+              allowTransparency
               frameBorder="0"
               scrolling="no"
               allow="encrypted-media"
