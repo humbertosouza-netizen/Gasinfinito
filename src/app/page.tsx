@@ -27,13 +27,14 @@ function Card({ children, className = "", gradient = false, id }: { children: Re
   );
 }
 
-function FloatingCard({ children, className = "" }: { children: React.ReactNode; className?: string }) {
+// Commented out unused component
+/* function FloatingCard({ children, className = "" }: { children: React.ReactNode; className?: string }) {
   return (
     <div className={`bg-gradient-to-br from-[var(--gray-belt)]/90 via-[var(--black-belt)]/80 to-[var(--gray-belt)]/90 border border-[var(--red-belt)]/30 rounded-3xl shadow-2xl px-8 py-6 text-white backdrop-blur-xl hover:border-[var(--red-belt)]/60 transition-all duration-500 ${className}`}>
       {children}
     </div>
   );
-}
+} */
 
 function FeatureItem({ title, description }: { title: string; description: string }) {
   return (
@@ -87,7 +88,8 @@ function ScrollArrow({ targetId }: { targetId: string }) {
 }
 
 export default function Home() {
-  const floatingCards = [
+  // Commented out unused variables
+  /* const floatingCards = [
     {
       title: "Seu Progresso",
       value: "17",
@@ -106,10 +108,10 @@ export default function Home() {
       subtitle: "Grupo Telegram",
       color: "text-[var(--red-belt)]",
     },
-  ];
-  const [cardIdx, setCardIdx] = useState(0);
-  const prevCard = () => setCardIdx((prev) => (prev === 0 ? floatingCards.length - 1 : prev - 1));
-  const nextCard = () => setCardIdx((prev) => (prev === floatingCards.length - 1 ? 0 : prev + 1));
+  ]; */
+  // const [cardIdx, setCardIdx] = useState(0);
+  // const prevCard = () => setCardIdx((prev) => (prev === 0 ? floatingCards.length - 1 : prev - 1));
+  // const nextCard = () => setCardIdx((prev) => (prev === floatingCards.length - 1 ? 0 : prev + 1));
 
   // Galeria de imagens do autor
   const galeriaImgs = [
@@ -142,13 +144,13 @@ export default function Home() {
 
       {/* HERO */}
       <Section className="flex flex-col items-center text-center justify-center min-h-screen pt-32 pb-32 relative">
-        <div className="relative mb-6 px-6 py-3 rounded-full bg-gradient-to-r from-[var(--gray-belt)]/80 to-[var(--black-belt)]/80 border border-[var(--red-belt)]/50 shadow-2xl backdrop-blur-xl animate-pulse-slow">
+        <div className="relative mb-6 px-6 py-3 rounded-full bg-gradient-to-r from-[var(--gray-belt)]/80 to-[var(--black-belt)]/80 border border-[var(--red-belt)]/50 shadow-2xl backdrop-blur-xl animate-pulse">
           {/* Energy rays effect */}
           <div className="absolute -inset-0.5 bg-[var(--red-belt)]/20 rounded-full blur-md"></div>
           <div className="absolute -inset-1 bg-[var(--red-belt)]/10 rounded-full blur-lg"></div>
           <div className="absolute -inset-2 bg-[var(--red-belt)]/5 rounded-full blur-xl"></div>
           {/* Animated glow effect */}
-          <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-[var(--red-belt)]/0 via-[var(--red-belt)]/30 to-[var(--red-belt)]/0 opacity-70 blur-xl animate-glow"></div>
+          <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-[var(--red-belt)]/0 via-[var(--red-belt)]/30 to-[var(--red-belt)]/0 opacity-70 blur-xl"></div>
           <span className="text-sm font-bold tracking-widest text-[var(--red-belt)] uppercase">🔥 Gás Infinito – Performance Jiu-Jitsu</span>
         </div>
         
@@ -322,7 +324,7 @@ export default function Home() {
                   </svg>
                 ))}
               </div>
-              <p className="text-xl italic text-white/90 mb-4">"Depois que comecei os treinos do Lúcio, parei de negar rola. O gás mudou!"</p>
+              <p className="text-xl italic text-white/90 mb-4">&quot;Depois que comecei os treinos do Lúcio, parei de negar rola. O gás mudou!&quot;</p>
               <div className="flex items-center">
                 <div className="w-10 h-10 rounded-full bg-[var(--red-belt)]"></div>
                 <div className="ml-3">
@@ -340,7 +342,7 @@ export default function Home() {
                   </svg>
                 ))}
               </div>
-              <p className="text-xl italic text-white/90 mb-4">"Treino rápido, funcional e direto. Comecei a aplicar e já senti diferença na segunda semana."</p>
+              <p className="text-xl italic text-white/90 mb-4">&quot;Treino rápido, funcional e direto. Comecei a aplicar e já senti diferença na segunda semana.&quot;</p>
               <div className="flex items-center">
                 <div className="w-10 h-10 rounded-full bg-[var(--red-belt)]"></div>
                 <div className="ml-3">
@@ -509,7 +511,7 @@ export default function Home() {
                   </div>
                   <div className="flex items-center gap-3 p-3 rounded-xl bg-white/5">
                     <div className="w-2 h-2 min-w-[8px] min-h-[8px] rounded-full bg-[var(--red-belt)]"></div>
-                    <span className="text-lg">Autor do eBook "Guia Extraordinário de Alto Rendimento" com 88 modelos prontos para aulas</span>
+                    <span className="text-lg">Autor do eBook &quot;Guia Extraordinário de Alto Rendimento&quot; com 88 modelos prontos para aulas</span>
                   </div>
                   <div className="flex items-center gap-3 p-3 rounded-xl bg-white/5">
                     <div className="w-2 h-2 min-w-[8px] min-h-[8px] rounded-full bg-[var(--red-belt)]"></div>
