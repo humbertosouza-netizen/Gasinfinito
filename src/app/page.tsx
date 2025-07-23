@@ -142,60 +142,66 @@ export default function Home() {
 
       {/* HERO */}
       <Section className="flex flex-col items-center text-center justify-center min-h-screen pt-32 pb-32 relative">
-        <div className="mb-6 px-6 py-3 rounded-full bg-gradient-to-r from-[var(--gray-belt)]/80 to-[var(--black-belt)]/80 border border-[var(--red-belt)]/30 shadow-2xl backdrop-blur-xl">
+        <div className="relative mb-6 px-6 py-3 rounded-full bg-gradient-to-r from-[var(--gray-belt)]/80 to-[var(--black-belt)]/80 border border-[var(--red-belt)]/50 shadow-2xl backdrop-blur-xl animate-pulse-slow">
+          {/* Energy rays effect */}
+          <div className="absolute -inset-0.5 bg-[var(--red-belt)]/20 rounded-full blur-md"></div>
+          <div className="absolute -inset-1 bg-[var(--red-belt)]/10 rounded-full blur-lg"></div>
+          <div className="absolute -inset-2 bg-[var(--red-belt)]/5 rounded-full blur-xl"></div>
+          {/* Animated glow effect */}
+          <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-[var(--red-belt)]/0 via-[var(--red-belt)]/30 to-[var(--red-belt)]/0 opacity-70 blur-xl animate-glow"></div>
           <span className="text-sm font-bold tracking-widest text-[var(--red-belt)] uppercase">🔥 Gás Infinito – Performance Jiu-Jitsu</span>
         </div>
         
         <h1 className="text-5xl sm:text-7xl lg:text-8xl font-black tracking-tight mb-8 leading-[0.9] bg-gradient-to-r from-white via-white to-white/80 bg-clip-text text-transparent drop-shadow-2xl">
-          O Segredo do <span className="bg-gradient-to-r from-[var(--red-belt)] to-[var(--red-belt)]/80 bg-clip-text text-transparent">GÁS INFINITO</span><br/>no Tatame
+          💥 CHEGA DE FADIGA! TREINE COM EFICIÊNCIA, EM QUALQUER LUGAR, E TRANSFORME SEU GÁS DENTRO DO TATAME!
         </h1>
         
         <p className="text-xl sm:text-2xl lg:text-3xl font-medium mb-12 max-w-4xl mx-auto text-white/90 leading-relaxed">
-          Transforme seu condicionamento com a planilha faixa preta de resistência, força e explosão. <span className="text-[var(--red-belt)] font-bold">Treine como os campeões!</span>
+          Treino 100% prático | <span className="text-[var(--red-belt)] font-bold">Sem equipamentos</span> | Ideal para quem quer performance no jiu-jitsu mesmo com pouco tempo
         </p>
         
         <div className="flex flex-col sm:flex-row gap-6 justify-center mb-16">
           <a href="https://pay.hotmart.com/J97697022X?off=nnc0goo2&bid=1752639346953" target="_blank" rel="noopener noreferrer" className="group bg-gradient-to-r from-white to-white/95 text-[var(--red-belt)] font-black py-5 px-12 rounded-2xl text-2xl shadow-2xl border-2 border-transparent hover:from-[var(--red-belt)] hover:to-[var(--red-belt)]/90 hover:text-white hover:border-white/20 transition-all duration-500 transform hover:scale-105 hover:shadow-3xl">
-            <span className="inline-block group-hover:scale-110 transition-transform duration-300">Quero meu gás infinito</span>
+            <span className="inline-block group-hover:scale-110 transition-transform duration-300">QUERO MINHA PLANILHA AGORA – De R$ 97,00 por apenas R$ 29,90</span>
           </a>
         </div>
 
-        {/* Enhanced Floating Cards */}
-        <div className="relative w-full flex flex-row justify-center gap-8 mt-8">
-          {/* Desktop: mostrar todos os cards */}
-          <div className="hidden md:flex flex-row gap-8 w-full justify-center">
-            {floatingCards.map((card, idx) => (
-              <FloatingCard key={idx} className={`rotate-${idx === 0 ? "[-4deg]" : idx === 2 ? "[4deg]" : "[2deg]"} scale-95 transform hover:rotate-0 hover:scale-100`}>
-                <div className="text-center">
-                  <div className={`font-black text-xl mb-3 ${card.color}`}>{card.title}</div>
-                  <div className="text-4xl font-black text-white mb-2">{card.value}</div>
-                  <div className="text-sm text-white/70 uppercase tracking-wider">{card.subtitle}</div>
-                </div>
-              </FloatingCard>
-            ))}
-          </div>
-          {/* Mobile: carrossel */}
-          <div className="md:hidden w-full flex flex-row items-center justify-center gap-2">
-            <button onClick={prevCard} aria-label="Anterior" className="p-2 rounded-full bg-white/10 hover:bg-white/20 text-white text-2xl font-black transition disabled:opacity-40"><span>&lt;</span></button>
-            <FloatingCard className="w-full max-w-xs mx-2">
-              <div className="text-center">
-                <div className={`font-black text-xl mb-3 ${floatingCards[cardIdx].color}`}>{floatingCards[cardIdx].title}</div>
-                <div className="text-4xl font-black text-white mb-2">{floatingCards[cardIdx].value}</div>
-                <div className="text-sm text-white/70 uppercase tracking-wider">{floatingCards[cardIdx].subtitle}</div>
-              </div>
-            </FloatingCard>
-            <button onClick={nextCard} aria-label="Próximo" className="p-2 rounded-full bg-white/10 hover:bg-white/20 text-white text-2xl font-black transition disabled:opacity-40"><span>&gt;</span></button>
-          </div>
-        </div>
+        <ScrollArrow targetId="se-identifica" />
+      </Section>
 
-        <div className="flex flex-wrap gap-6 justify-center mt-12 text-sm text-white/50 font-mono">
-          <span className="hover:text-[var(--red-belt)] transition-colors duration-300">brbjjextraordinario.metodose7e.com</span>
-          <span className="hidden sm:inline">•</span>
-          <span className="hover:text-[var(--red-belt)] transition-colors duration-300">metodose7e.com</span>
-          <span className="hidden sm:inline">•</span>
-          <span className="hover:text-[var(--red-belt)] transition-colors duration-300">Hotmart</span>
-        </div>
-
+      {/* Pain Points - Você se identifica com isso? */}
+      <Section id="se-identifica" className="relative">
+        <Card className="p-12 text-center" gradient>
+          <h2 className="text-3xl sm:text-4xl font-black text-white mb-8 uppercase tracking-wider">
+            Você se identifica com isso?
+          </h2>
+          
+          <div className="grid md:grid-cols-2 gap-8 mb-10 max-w-4xl mx-auto">
+            <div className="bg-gradient-to-r from-[var(--red-belt)]/10 to-transparent p-6 rounded-2xl border-l-4 border-[var(--red-belt)] text-left flex items-center">
+              <div className="w-8 h-8 rounded-full bg-[var(--red-belt)]/20 flex items-center justify-center text-[var(--red-belt)] font-bold text-xl mr-4">⚠️</div>
+              <p className="text-xl text-white/90">Fica sem gás mesmo treinando musculação?</p>
+            </div>
+            
+            <div className="bg-gradient-to-r from-[var(--red-belt)]/10 to-transparent p-6 rounded-2xl border-l-4 border-[var(--red-belt)] text-left flex items-center">
+              <div className="w-8 h-8 rounded-full bg-[var(--red-belt)]/20 flex items-center justify-center text-[var(--red-belt)] font-bold text-xl mr-4">⚠️</div>
+              <p className="text-xl text-white/90">Trava na luta e perde posição por falta de força?</p>
+            </div>
+            
+            <div className="bg-gradient-to-r from-[var(--red-belt)]/10 to-transparent p-6 rounded-2xl border-l-4 border-[var(--red-belt)] text-left flex items-center">
+              <div className="w-8 h-8 rounded-full bg-[var(--red-belt)]/20 flex items-center justify-center text-[var(--red-belt)] font-bold text-xl mr-4">⚠️</div>
+              <p className="text-xl text-white/90">Tem pouco tempo e não consegue treinar de forma eficiente?</p>
+            </div>
+            
+            <div className="bg-gradient-to-r from-[var(--red-belt)]/10 to-transparent p-6 rounded-2xl border-l-4 border-[var(--red-belt)] text-left flex items-center">
+              <div className="w-8 h-8 rounded-full bg-[var(--red-belt)]/20 flex items-center justify-center text-[var(--red-belt)] font-bold text-xl mr-4">⚠️</div>
+              <p className="text-xl text-white/90">Já tentou treinos genéricos de academia e não sentiu evolução nenhuma no tatame?</p>
+            </div>
+          </div>
+          
+          <p className="text-2xl font-bold text-[var(--red-belt)] mb-8 max-w-4xl mx-auto bg-[var(--red-belt)]/10 p-4 rounded-xl border border-[var(--red-belt)]/30">
+            📢 Você não está sozinho — e o problema não é você. É o treino errado.
+          </p>
+        </Card>
         <ScrollArrow targetId="oque-e" />
       </Section>
 
@@ -205,39 +211,50 @@ export default function Home() {
           <h2 className="text-3xl sm:text-4xl font-black text-white mb-8 uppercase tracking-wider">
             O que é a Planilha de Treino do <span className="text-[var(--red-belt)]">GÁS INFINITO</span>?
           </h2>
-          <p className="text-xl text-white/90 mb-8 max-w-4xl mx-auto leading-relaxed">
-            Programa de preparação física específico para jiu-jitsu, projetado para aumentar extraordinariamente sua resistência, força e explosão. Inclui um cronograma de treinos estratégicos, voltados às necessidades reais do tatame.
-          </p>
-          <div className="flex flex-wrap gap-6 justify-center text-sm text-white/60 font-semibold">
-            <span className="hover:text-[var(--red-belt)] transition-colors duration-300">metodose7e.com</span>
-            <span className="hover:text-[var(--red-belt)] transition-colors duration-300">Hotmart</span>
-          </div>
-        </Card>
-
-        <ScrollArrow targetId="bonus" />
-      </Section>
-
-      {/* Bonus Section */}
-      <Section>
-        <Card className="p-12" gradient>
-          <div className="flex flex-col lg:flex-row gap-12 items-center">
-            <div className="flex-1 text-center lg:text-left">
-              <h2 className="text-2xl font-black text-[var(--red-belt)] mb-6 uppercase tracking-wider flex items-center justify-center lg:justify-start gap-3">
-                <span className="text-4xl">🎁</span> Sobre o Bônus
-              </h2>
-              <p className="text-xl text-white/90 mb-4 leading-relaxed">
-                Você receberá, via WhatsApp, uma Planilha de 6 Semanas EXTRA 7 dias após a compra.
+          
+          <div className="mb-10 flex flex-col md:flex-row items-center gap-8">
+            <div className="flex-1">
+              <p className="text-xl text-white/90 mb-6 max-w-3xl mx-auto leading-relaxed text-left">
+                <span className="font-bold text-[var(--red-belt)]">📂 PLANILHA DE TREINO COM PESO CORPORAL – ESPECÍFICA PARA JIU-JITSU</span>
               </p>
-              <p className="text-[var(--red-belt)] font-bold bg-[var(--red-belt)]/10 px-4 py-2 rounded-xl border border-[var(--red-belt)]/30">
-                Importante: insira o número de WhatsApp corretamente no momento da compra.
+              
+              <p className="text-xl text-white/90 mb-6 max-w-3xl mx-auto leading-relaxed text-left">
+                🧠 Criada pelo Professor Lúcio Flávio – Faixa Preta 5º grau, campeão mundial e criador da Metodologia GÁS INFINITO.
+              </p>
+              
+              <div className="bg-gradient-to-br from-[var(--gray-belt)]/30 to-[var(--black-belt)]/30 rounded-2xl p-6 border border-[var(--red-belt)]/20 mb-6 text-left">
+                <h3 className="font-black text-xl text-[var(--red-belt)] mb-4">O que está incluso:</h3>
+                <ul className="space-y-3">
+                  <li className="flex items-start gap-3">
+                    <span className="text-[var(--red-belt)] font-bold text-xl">✅</span>
+                    <span className="text-white/90">Planilha em PDF com circuitos prontos</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-[var(--red-belt)] font-bold text-xl">✅</span>
+                    <span className="text-white/90">Exercícios com link direto para vídeos</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-[var(--red-belt)] font-bold text-xl">✅</span>
+                    <span className="text-white/90">Organização para facilitar a execução</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-[var(--red-belt)] font-bold text-xl">✅</span>
+                    <span className="text-white/90">Bônus: Treino completo de mobilidade para prevenir lesões e aumentar amplitude</span>
+                  </li>
+                </ul>
+              </div>
+              
+              <p className="text-xl font-bold text-center bg-[var(--red-belt)]/10 p-4 rounded-xl border border-[var(--red-belt)]/30">
+                📌 Ideal para treinar em casa, no tatame ou na academia.
               </p>
             </div>
+            
             <div className="w-64 h-48 flex-shrink-0">
               <div className="bg-gradient-to-br from-[var(--gray-belt)] to-[var(--black-belt)] border-4 border-[var(--red-belt)] rounded-2xl flex flex-col items-center justify-center shadow-xl w-full h-full p-0 overflow-hidden">
                 <div className="w-full h-full flex items-center justify-center overflow-hidden">
-          <Image
+                  <Image
                     src="/images/faixa-preta-energia.png"
-                    alt="Ícone WhatsApp e PDF"
+                    alt="Planilha de Treino GÁS INFINITO"
                     width={256}
                     height={180}
                     className="object-cover w-full h-full"
@@ -249,85 +266,97 @@ export default function Home() {
           </div>
         </Card>
 
-        <ScrollArrow targetId="incluso" />
+        <ScrollArrow targetId="metodologia" />
       </Section>
-
-      {/* What's Included */}
-      <Section id="incluso">
+      
+      {/* Authority Block - Bloco de Autoridade */}
+      <Section id="metodologia">
         <Card className="p-12" gradient>
-          <h2 className="text-3xl font-black text-white mb-12 uppercase tracking-wider flex items-center justify-center gap-3">
-            📦 O que está incluso
+          <h2 className="text-3xl font-black text-white mb-8 uppercase tracking-wider flex items-center justify-center gap-3">
+            🔬 POR QUE ESSA PLANILHA FUNCIONA DE VERDADE?
           </h2>
           
-          <div className="grid lg:grid-cols-2 gap-12 mb-12">
+          <p className="text-xl text-white/90 mb-8 max-w-4xl mx-auto leading-relaxed">
+            📚 A metodologia GÁS INFINITO foi desenvolvida a partir de mais de 30 anos de experiência real no tatame e nos bastidores do alto rendimento e que já ajudou mais de 1900 amantes do jiu-jitsu a melhorarem seu rendimento dentro do tatame.
+          </p>
+          
+          <div className="bg-gradient-to-br from-[var(--gray-belt)]/30 to-[var(--black-belt)]/30 rounded-2xl p-8 border border-[var(--red-belt)]/20 mb-8">
+            <h3 className="font-black text-2xl text-[var(--red-belt)] mb-6">💪 Os pilares que você vai aplicar com essa planilha:</h3>
+            
             <div className="space-y-6">
-              <FeatureItem title="Planilha de 17 semanas" description="Programa completo de condicionamento físico específico para jiu-jitsu" />
-              <FeatureItem title="Bônus: Planilha de 6 semanas" description="Material extra enviado via WhatsApp após 7 dias da compra" />
-              <FeatureItem title="Suporte em grupo via Telegram" description="Acesso exclusivo ao grupo de suporte e motivação" />
-              <FeatureItem title="Treinos em PDF com vídeos" description="Material didático completo com links para demonstrações" />
+              <div className="bg-white/5 p-6 rounded-xl border border-white/10">
+                <h4 className="font-bold text-xl mb-3">Eficiência de Movimentação</h4>
+                <p className="text-white/80">Muito mais equilíbrio, coordenação, agilidade e mobilidade. Melhor capacidade de agir e reagir na luta, além de prevenir lesões e aprender melhor as posições.</p>
+              </div>
+              
+              <div className="bg-white/5 p-6 rounded-xl border border-white/10">
+                <h4 className="font-bold text-xl mb-3">Resistência à Acidose</h4>
+                <p className="text-white/80">Músculos com maior capacidade de utilizar e reciclar energia. Mais força, potência e Isometria. Lute mais intenso e sem morrer no gás. Recupere mais rápido e volte para a luta a todo vapor.</p>
+              </div>
+            </div>
+          </div>
+          
+          <p className="text-xl font-bold text-center bg-[var(--red-belt)]/10 p-4 rounded-xl border border-[var(--red-belt)]/30">
+            📎 Tudo isso com seu próprio peso corporal.
+            <br/>
+            🚫 Sem equipamentos. Sem enrolação. Sem risco de lesão por treino mal planejado.
+          </p>
+        </Card>
+        
+        <ScrollArrow targetId="depoimentos" />
+      </Section>
+      
+      {/* Testimonials - Depoimentos */}
+      <Section id="depoimentos">
+        <Card className="p-12" gradient>
+          <h2 className="text-3xl font-black text-white mb-8 uppercase tracking-wider flex items-center justify-center gap-3">
+            📢 Atletas que já aplicaram a Metodologia GÁS INFINITO dizem:
+          </h2>
+          
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-8">
+            <div className="bg-gradient-to-br from-[var(--gray-belt)]/20 to-[var(--black-belt)]/20 p-6 rounded-2xl border border-[var(--red-belt)]/20">
+              <div className="flex mb-4">
+                {[1, 2, 3, 4, 5].map((star) => (
+                  <svg key={star} width="24" height="24" viewBox="0 0 24 24" fill="var(--red-belt)" className="mr-1">
+                    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
+                  </svg>
+                ))}
+              </div>
+              <p className="text-xl italic text-white/90 mb-4">"Depois que comecei os treinos do Lúcio, parei de negar rola. O gás mudou!"</p>
+              <div className="flex items-center">
+                <div className="w-10 h-10 rounded-full bg-[var(--red-belt)]"></div>
+                <div className="ml-3">
+                  <p className="font-bold">Atleta da GFTEAM</p>
+                  <p className="text-white/60 text-sm">Faixa Roxa</p>
+                </div>
+              </div>
             </div>
             
-            <div className="bg-gradient-to-br from-[var(--gray-belt)]/30 to-[var(--black-belt)]/30 rounded-2xl p-8 border border-[var(--red-belt)]/20">
-              <h3 className="font-black text-2xl text-[var(--red-belt)] mb-6 uppercase tracking-wide">Três tipos de treino:</h3>
-              <div className="space-y-4">
-                <div className="flex items-center gap-4 p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-colors duration-300">
-                  <div className="w-8 h-8 rounded-full bg-[var(--red-belt)] flex items-center justify-center text-white font-bold">1</div>
-                  <span className="text-lg font-semibold">Força Base (aparelhos de musculação básica)</span>
-                </div>
-                <div className="flex items-center gap-4 p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-colors duration-300">
-                  <div className="w-8 h-8 rounded-full bg-[var(--red-belt)] flex items-center justify-center text-white font-bold">2</div>
-                  <span className="text-lg font-semibold">Específico (halteres e peso corporal)</span>
-                </div>
-                <div className="flex items-center gap-4 p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-colors duration-300">
-                  <div className="w-8 h-8 rounded-full bg-[var(--red-belt)] flex items-center justify-center text-white font-bold">3</div>
-                  <span className="text-lg font-semibold">Mobilidade (peso corporal)</span>
+            <div className="bg-gradient-to-br from-[var(--gray-belt)]/20 to-[var(--black-belt)]/20 p-6 rounded-2xl border border-[var(--red-belt)]/20">
+              <div className="flex mb-4">
+                {[1, 2, 3, 4, 5].map((star) => (
+                  <svg key={star} width="24" height="24" viewBox="0 0 24 24" fill="var(--red-belt)" className="mr-1">
+                    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
+                  </svg>
+                ))}
+              </div>
+              <p className="text-xl italic text-white/90 mb-4">"Treino rápido, funcional e direto. Comecei a aplicar e já senti diferença na segunda semana."</p>
+              <div className="flex items-center">
+                <div className="w-10 h-10 rounded-full bg-[var(--red-belt)]"></div>
+                <div className="ml-3">
+                  <p className="font-bold">Praticante</p>
+                  <p className="text-white/60 text-sm">Faixa Azul</p>
                 </div>
               </div>
             </div>
           </div>
-          
-          <div className="text-center">
-            <a href="https://pay.hotmart.com/J97697022X?off=nnc0goo2&bid=1752639346953" target="_blank" rel="noopener noreferrer" className="inline-block bg-gradient-to-r from-[var(--red-belt)] to-[var(--red-belt)]/90 text-white font-black px-8 py-4 rounded-2xl shadow-2xl transform hover:scale-105 transition-all duration-300">
-              💡 Promoção especial — basta clicar para começar.
-            </a>
-          </div>
         </Card>
-
-        <ScrollArrow targetId="beneficios" />
-      </Section>
-
-      {/* Benefits */}
-      <Section id="beneficios">
-        <Card className="p-12" gradient>
-          <h2 className="text-3xl font-black text-white mb-12 uppercase tracking-wider flex items-center justify-center gap-3">
-            💪 Benefícios que você vai alcançar
-          </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <FeatureItem title="Resistência específica" description="Mantenha a intensidade da luta até o fim" />
-            <FeatureItem title="Aeróbico e cárdio específico" description="Foco no condicionamento respiratório para o tatame" />
-            <FeatureItem title="Força e explosão" description="Mais potência e eficiência nos movimentos" />
-            <FeatureItem title="Recuperação rápida" description="Esteja pronto para a próxima luta em tempo recorde" />
-            <FeatureItem title="Prevenção de lesões" description="Exercícios inteligentes para fortalecer o corpo" />
-            <div className="md:col-span-2 lg:col-span-1 flex justify-center items-center">
-              <div className="rounded-2xl overflow-hidden border-4 border-[var(--red-belt)] shadow-xl bg-[var(--black-belt)]">
-                <Image
-                  src="/images/faixa-preta-energia.png"
-                  alt="Faixa preta e energia"
-                  width={256}
-                  height={180}
-                  className="object-cover w-64 h-48"
-                  priority
-                />
-              </div>
-            </div>
-          </div>
-        </Card>
-
+        
         <ScrollArrow targetId="valor" />
       </Section>
 
-      {/* Special Price */}
-      <Section>
+      {/* Special Price - Oferta e Urgência */}
+      <Section id="valor">
         <Card className="p-12 text-center border-2 border-[var(--red-belt)]/30" gradient>
           <h2 className="text-4xl font-black text-[var(--red-belt)] mb-8 uppercase tracking-wider flex items-center justify-center gap-3">
             💵 Valor especial
@@ -344,21 +373,84 @@ export default function Home() {
               />
             </div>
           </div>
-          <p className="text-2xl text-white/90 mb-4">
-            O treinamento completo, normalmente vendido por <span className="line-through text-white/40 text-xl">R$ 400,00</span>
-          </p>
-          <p className="text-5xl font-black text-[var(--red-belt)] mb-6">
-            R$ 59,90
-          </p>
-          <p className="text-xl text-white/80 mb-8">
-            Menos do que uma única aula particular. Aproveite essa chance de mudar seu jogo no jiu-jitsu para sempre!
+          <div className="space-y-6 mb-8 max-w-3xl mx-auto">
+            <p className="text-2xl text-white/90">
+              🎯 De <span className="line-through text-white/40 text-xl">R$ 97,00</span> por apenas <span className="text-5xl font-black text-[var(--red-belt)]">R$ 29,90</span>
+            </p>
+            <div className="space-y-3 text-lg">
+              <p className="flex items-center gap-2">
+                <span className="text-[var(--red-belt)] font-bold">💸</span>
+                <span>Investimento único com acesso vitalício</span>
+              </p>
+              <p className="flex items-center gap-2">
+                <span className="text-[var(--red-belt)] font-bold">🎁</span>
+                <span>BÔNUS de mobilidade incluso</span>
+              </p>
+              <p className="flex items-center gap-2">
+                <span className="text-[var(--red-belt)] font-bold">🚀</span>
+                <span>Acesso imediato: Ao realizar a compra vai receber o acesso por e-mail + link dos vídeos direto na planilha</span>
+              </p>
+            </div>
+          </div>
+          
+          <div className="bg-[var(--red-belt)]/20 p-6 rounded-2xl border border-[var(--red-belt)]/30 mb-10 max-w-3xl mx-auto">
+            <p className="text-xl font-bold">
+              ⏰ ATENÇÃO: Oferta por tempo limitado.
+              <br/>
+              Essa condição promocional pode sair do ar a qualquer momento.
+            </p>
+          </div>
+          
+          <p className="text-xl text-white/80 mb-10">
+            📌 Treine onde quiser. Evolua como poucos.
           </p>
           
           <a id="cta" href="https://pay.hotmart.com/J97697022X?off=nnc0goo2&bid=1752639346953" target="_blank" rel="noopener noreferrer" className="group inline-block bg-gradient-to-r from-[var(--red-belt)] to-[var(--red-belt)]/90 text-white font-black py-6 px-16 rounded-2xl text-3xl shadow-2xl hover:from-white hover:to-white/95 hover:text-[var(--red-belt)] border-4 border-transparent hover:border-[var(--red-belt)] transition-all duration-500 transform hover:scale-110 hover:shadow-3xl">
-            <span className="inline-block group-hover:scale-110 transition-transform duration-300">Quero meu gás infinito</span>
+            <span className="inline-block group-hover:scale-110 transition-transform duration-300">QUERO COMEÇAR AGORA</span>
           </a>
         </Card>
 
+        {/* Final CTA - Call to Action Final */}
+        <div className="mt-16 max-w-4xl mx-auto">
+          <div className="bg-gradient-to-br from-[var(--gray-belt)]/80 via-[var(--black-belt)]/80 to-[var(--gray-belt)]/80 rounded-3xl shadow-2xl border-2 border-[var(--red-belt)]/40 p-12 text-center">
+            <h2 className="text-3xl font-black text-white mb-6">
+              🎯 Pronto para mudar seu jogo com um treino pensado para o tatame?
+            </h2>
+            
+            <p className="text-xl text-white/90 mb-8">
+              👊 Clique abaixo e garanta agora sua planilha:
+            </p>
+            
+            <a href="https://pay.hotmart.com/J97697022X?off=nnc0goo2&bid=1752639346953" target="_blank" rel="noopener noreferrer" className="group inline-block bg-white text-[var(--red-belt)] font-black py-6 px-12 rounded-2xl text-2xl shadow-2xl border-4 border-transparent hover:bg-[var(--red-belt)] hover:text-white hover:border-white/20 transition-all duration-500 transform hover:scale-105 hover:shadow-3xl mb-6">
+              <span className="inline-block group-hover:scale-110 transition-transform duration-300">QUERO COMEÇAR AGORA - De R$ 97,00 por apenas R$ 29,90</span>
+            </a>
+            
+            <p className="text-lg text-white/90">
+              📥 Acesso imediato | Vídeos incluídos | Bônus liberado
+            </p>
+          </div>
+        </div>
+        
+        {/* Guarantees and Support - Rodapé com garantias e suporte */}
+        <div className="mt-16 max-w-4xl mx-auto">
+          <div className="bg-gradient-to-br from-[var(--gray-belt)]/30 via-[var(--black-belt)]/30 to-[var(--gray-belt)]/30 rounded-xl p-8 border border-white/10 flex flex-col md:flex-row justify-center gap-8 items-center">
+            <div className="flex items-center gap-4">
+              <div className="w-12 h-12 min-w-[48px] min-h-[48px] overflow-hidden rounded-full bg-[var(--red-belt)]/20 border border-[var(--red-belt)]/30 flex items-center justify-center text-[var(--red-belt)] text-2xl shadow-inner">🔒</div>
+              <span className="text-lg">Compra 100% segura</span>
+            </div>
+            
+            <div className="flex items-center gap-4">
+              <div className="w-12 h-12 min-w-[48px] min-h-[48px] overflow-hidden rounded-full bg-[var(--red-belt)]/20 border border-[var(--red-belt)]/30 flex items-center justify-center text-[var(--red-belt)] text-2xl shadow-inner">📞</div>
+              <span className="text-lg">Suporte direto com a equipe do Professor Lúcio Flávio</span>
+            </div>
+            
+            <div className="flex items-center gap-4">
+              <div className="w-12 h-12 min-w-[48px] min-h-[48px] overflow-hidden rounded-full bg-[var(--red-belt)]/20 border border-[var(--red-belt)]/30 flex items-center justify-center text-[var(--red-belt)] text-2xl shadow-inner">📩</div>
+              <span className="text-lg">Entrega imediata no seu e-mail após confirmação do pagamento</span>
+            </div>
+          </div>
+        </div>
+        
         <ScrollArrow targetId="autor" />
       </Section>
 
@@ -377,9 +469,24 @@ export default function Home() {
               />
             </div>
             <div className="flex-1">
-              <h2 className="text-3xl font-black text-[var(--red-belt)] mb-8 uppercase tracking-wider flex items-center gap-3">
+              <h2 className="text-3xl font-black text-[var(--red-belt)] mb-4 uppercase tracking-wider flex items-center gap-3">
                 🎓 Quem é Lúcio Flávio?
               </h2>
+              
+              <p className="text-xl text-white/90 mb-6 leading-relaxed">
+                🎯 Sou o criador da Metodologia GÁS INFINITO, um método específico para melhorar a performance no jiu-jitsu com foco em:
+              </p>
+              
+              <div className="space-y-3 mb-6">
+                <p className="text-lg bg-white/5 p-3 rounded-lg">Eficiência de movimentação</p>
+                <p className="text-lg bg-white/5 p-3 rounded-lg">Resistência à fadiga e acidose</p>
+                <p className="text-lg bg-white/5 p-3 rounded-lg">Prevenção de lesões</p>
+                <p className="text-lg bg-white/5 p-3 rounded-lg">Treinos práticos e específicos para a luta</p>
+              </div>
+              
+              <p className="text-xl text-white/90 mb-6 leading-relaxed">
+                👨‍🏫 Também sou:
+              </p>
               {/* Galeria de imagens */}
               <div className="mb-8 grid grid-cols-3 sm:grid-cols-6 gap-3">
                 {galeriaImgs.map((img, idx) => (
@@ -398,23 +505,27 @@ export default function Home() {
                 <div className="space-y-3">
                   <div className="flex items-center gap-3 p-3 rounded-xl bg-white/5">
                     <div className="w-2 h-2 min-w-[8px] min-h-[8px] rounded-full bg-[var(--red-belt)]"></div>
-                    <span className="text-lg">Bacharel em Educação Física (2010)</span>
+                    <span className="text-lg">Criador do Curso de Alto Rendimento para Aulas de Jiu-Jitsu</span>
                   </div>
                   <div className="flex items-center gap-3 p-3 rounded-xl bg-white/5">
                     <div className="w-2 h-2 min-w-[8px] min-h-[8px] rounded-full bg-[var(--red-belt)]"></div>
-                    <span className="text-lg">Faixa preta de jiu-jitsu (5º grau) e judô</span>
+                    <span className="text-lg">Autor do eBook "Guia Extraordinário de Alto Rendimento" com 88 modelos prontos para aulas</span>
                   </div>
                   <div className="flex items-center gap-3 p-3 rounded-xl bg-white/5">
                     <div className="w-2 h-2 min-w-[8px] min-h-[8px] rounded-full bg-[var(--red-belt)]"></div>
-                    <span className="text-lg">Criador da Metodologia GÁS INFINITO</span>
+                    <span className="text-lg">Professor responsável pelo treino de competição da Equipe GFTEAM na Matriz no Rio de Janeiro, Brasil</span>
                   </div>
                   <div className="flex items-center gap-3 p-3 rounded-xl bg-white/5">
                     <div className="w-2 h-2 min-w-[8px] min-h-[8px] rounded-full bg-[var(--red-belt)]"></div>
-                    <span className="text-lg">Autor do e-book &quot;Guia Extraordinário de Alto Rendimento para Jiu-Jitsu&quot;</span>
+                    <span className="text-lg">Responsável pelo módulo de alto rendimento do Curso de Instrutores da GFTEAM</span>
                   </div>
                   <div className="flex items-center gap-3 p-3 rounded-xl bg-white/5">
                     <div className="w-2 h-2 min-w-[8px] min-h-[8px] rounded-full bg-[var(--red-belt)]"></div>
-                    <span className="text-lg">Preparador físico da GFTEAM e de atletas renomados</span>
+                    <span className="text-lg">Coordenador de cursos da GFTEAM</span>
+                  </div>
+                  <div className="flex items-center gap-3 p-3 rounded-xl bg-white/5">
+                    <div className="w-2 h-2 min-w-[8px] min-h-[8px] rounded-full bg-[var(--red-belt)]"></div>
+                    <span className="text-lg">Preparador físico de atletas de elite, como: Thamires Aquino, Ricardo Evangelista, Patrick Gaudio, Jhennifer Aquino, Maria Delahaye, Flávia Soares, Rodrigo Souza, Letícia Gomes... e muitos outros</span>
                   </div>
                 </div>
               </div>
@@ -423,39 +534,67 @@ export default function Home() {
                 <div className="grid gap-3">
                   <div className="flex items-center gap-3">
                     <div className="w-6 h-6 rounded-full bg-[var(--red-belt)] flex items-center justify-center text-white font-bold text-sm">🏆</div>
-                    <span>Bicampeão Mundial pela IBJJF (2005/2019)</span>
+                    <span>Bi-Campeão Mundial IBJJF (2005 / 2019)</span>
                   </div>
                   <div className="flex items-center gap-3">
                     <div className="w-6 h-6 rounded-full bg-[var(--red-belt)] flex items-center justify-center text-white font-bold text-sm">🏆</div>
-                    <span>Bicampeão Brasileiro pela CBJJ (2019/2021)</span>
+                    <span>Tri-Campeão Brasileiro CBJJ (2019 / 2021 / 2025)</span>
                   </div>
                   <div className="flex items-center gap-3">
                     <div className="w-6 h-6 rounded-full bg-[var(--red-belt)] flex items-center justify-center text-white font-bold text-sm">🏆</div>
-                    <span>Tricampeão Internacional Master pela IBJJF (2016/2019)</span>
+                    <span>Tri-Campeão Internacional Master IBJJF (2016 / 2018 / 2019)</span>
                   </div>
                   <div className="flex items-center gap-3">
                     <div className="w-6 h-6 rounded-full bg-[var(--red-belt)] flex items-center justify-center text-white font-bold text-sm">🏆</div>
-                    <span>Bicampeão Brasileiro por equipes (2018/2019)</span>
+                    <span>Bi-Campeão Brasileiro por Equipes CBJJ (2018 / 2019)</span>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          {/* Modal/Lightbox */}
+          {/* Modal/Lightbox - Close button above image */}
           {modalOpen && (
-            <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm">
-              <button onClick={closeModal} className="absolute top-4 right-4 text-white text-3xl font-black bg-black/40 rounded-full p-2 hover:bg-[var(--red-belt)]/80 transition-all">×</button>
-              <button onClick={prevImg} className="absolute left-4 top-1/2 -translate-y-1/2 text-white text-4xl font-black bg-black/40 rounded-full p-2 hover:bg-[var(--red-belt)]/80 transition-all">&#60;</button>
-              <div className="rounded-2xl overflow-hidden border-4 border-[var(--red-belt)] shadow-2xl bg-[var(--black-belt)] flex items-center justify-center">
-          <Image
-                  src={galeriaImgs[modalIdx]}
-                  alt={`Galeria ${modalIdx + 1}`}
-                  width={600}
-                  height={600}
-                  className="object-contain max-w-full max-h-[80vh]"
-                />
+            <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-black/90 backdrop-blur-sm overflow-auto py-12 px-4">
+              <div className="relative max-w-full max-h-full flex flex-col items-center">
+                {/* Close button positioned above the image */}
+                <div className="w-full flex justify-end mb-4">
+                  <button 
+                    onClick={closeModal} 
+                    className="text-white text-4xl font-black bg-[var(--red-belt)] rounded-full w-14 h-14 flex items-center justify-center shadow-lg hover:bg-[var(--red-belt)]/80 transition-all"
+                    aria-label="Fechar"
+                  >
+                    ×
+                  </button>
+                </div>
+                
+                <div className="rounded-xl overflow-hidden border-4 border-[var(--red-belt)] shadow-2xl bg-[var(--black-belt)] flex items-center justify-center">
+                  <Image
+                    src={galeriaImgs[modalIdx]}
+                    alt={`Galeria ${modalIdx + 1}`}
+                    width={600}
+                    height={600}
+                    className="object-contain max-w-full max-h-[70vh]"
+                  />
+                </div>
+                
+                {/* Navigation buttons below image on mobile, on sides for larger screens */}
+                <div className="w-full flex justify-between mt-4 sm:mt-0">
+                  <button 
+                    onClick={prevImg} 
+                    className="sm:absolute sm:left-4 sm:top-1/2 sm:-translate-y-1/2 text-white text-3xl font-black bg-black/60 rounded-full p-3 hover:bg-[var(--red-belt)] transition-all"
+                    aria-label="Imagem anterior"
+                  >
+                    &#60;
+                  </button>
+                  <button 
+                    onClick={nextImg} 
+                    className="sm:absolute sm:right-4 sm:top-1/2 sm:-translate-y-1/2 text-white text-3xl font-black bg-black/60 rounded-full p-3 hover:bg-[var(--red-belt)] transition-all"
+                    aria-label="Próxima imagem"
+                  >
+                    &#62;
+                  </button>
+                </div>
               </div>
-              <button onClick={nextImg} className="absolute right-4 top-1/2 -translate-y-1/2 text-white text-4xl font-black bg-black/40 rounded-full p-2 hover:bg-[var(--red-belt)]/80 transition-all">&#62;</button>
             </div>
           )}
         </Card>
