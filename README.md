@@ -1,6 +1,6 @@
-# 🥋 Gás Infinito - Landing Page Premium
+# 🥋 Gás Infinito - Landing Page
 
-Landing page profissional para o produto **Gás Infinito** - Planilha de Treino específica para jiu-jitsu, desenvolvida com Next.js 14 e TypeScript.
+Landing page para o produto **Gás Infinito** - Planilha de Treino específica para jiu-jitsu, desenvolvida com Next.js 14 e TypeScript.
 
 ## ✨ Funcionalidades Implementadas
 
@@ -10,20 +10,6 @@ Landing page profissional para o produto **Gás Infinito** - Planilha de Treino 
 - ✅ Rastreamento de eventos de conversão (Lead, InitiateCheckout)
 - ✅ Hook personalizado para rastreamento de eventos
 - ✅ Configurações centralizadas e fáceis de manter
-
-### 🔍 **SEO Otimizado**
-- ✅ Meta tags completas para Open Graph e Twitter
-- ✅ Sitemap XML automático
-- ✅ Robots.txt configurado
-- ✅ Schema markup para produtos
-- ✅ Meta tags para redes sociais
-- ✅ Configurações de viewport e tema
-
-### 📱 **PWA Ready**
-- ✅ Manifesto web configurado
-- ✅ Ícones para diferentes dispositivos
-- ✅ Meta tags para aplicativos móveis
-- ✅ Configurações para iOS e Android
 
 ### 🎨 **Design e UX**
 - ✅ Interface moderna e responsiva
@@ -49,8 +35,7 @@ gas-infinito-lp/
 │   │   ├── components/
 │   │   │   └── FacebookPixel.tsx
 │   │   ├── config/
-│   │   │   ├── facebookPixel.ts
-│   │   │   └── site.ts
+│   │   │   └── facebookPixel.ts
 │   │   ├── hooks/
 │   │   │   └── useFacebookPixel.ts
 │   │   ├── layout.tsx
@@ -59,11 +44,7 @@ gas-infinito-lp/
 ├── public/
 │   ├── favicon.ico
 │   ├── favicon-16x16.png
-│   ├── site.webmanifest
-│   ├── robots.txt
-│   ├── sitemap.xml
 │   └── images/
-├── env.example
 └── README.md
 ```
 
@@ -74,18 +55,12 @@ gas-infinito-lp/
 npm install
 ```
 
-### 2. **Variáveis de Ambiente**
-Copie o arquivo `env.example` para `.env.local` e configure:
-```bash
-cp env.example .env.local
-```
-
-### 3. **Executar em Desenvolvimento**
+### 2. **Executar em Desenvolvimento**
 ```bash
 npm run dev
 ```
 
-### 4. **Build para Produção**
+### 3. **Build para Produção**
 ```bash
 npm run build
 npm start
@@ -94,21 +69,9 @@ npm start
 ## 🔧 Configurações Personalizáveis
 
 ### **Facebook Pixel**
-- ID do pixel configurável via variável de ambiente
-- Token de acesso configurável
+- ID do pixel configurável via arquivo de configuração
 - Eventos personalizáveis
-
-### **Site**
-- URLs configuráveis
-- Preços do produto
-- Links de redes sociais
-- Metadados SEO
-
-### **Produto**
-- Nome e descrição
-- Preços (original e promocional)
-- Moeda
-- Características
+- Hook reutilizável para outras páginas
 
 ## 📊 Eventos Rastreados
 
@@ -139,14 +102,6 @@ A landing page é totalmente responsiva e otimizada para:
 - 🖥️ Desktops
 - 📺 Telas grandes
 
-## 🔍 SEO e Performance
-
-- ✅ **Lighthouse Score**: Otimizado para performance
-- ✅ **Core Web Vitals**: Métricas otimizadas
-- ✅ **SEO**: Meta tags completas
-- ✅ **Acessibilidade**: ARIA labels e semântica
-- ✅ **Performance**: Lazy loading e otimizações
-
 ## 📈 Analytics e Conversão
 
 - **Facebook Pixel** para rastreamento de conversões
@@ -160,12 +115,6 @@ A landing page é totalmente responsiva e otimizada para:
 ```bash
 npm run build
 vercel --prod
-```
-
-### **Netlify**
-```bash
-npm run build
-netlify deploy --prod --dir=out
 ```
 
 ### **Outros**

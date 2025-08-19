@@ -37,17 +37,7 @@ function Card({ children, className = "", gradient = false, id }: { children: Re
   );
 } */
 
-function FeatureItem({ title, description }: { title: string; description: string }) {
-  return (
-    <div className="flex items-start gap-4 p-6 rounded-2xl bg-gradient-to-r from-[var(--gray-belt)]/20 to-transparent hover:from-[var(--gray-belt)]/40 transition-all duration-300 group">
-      <div className="w-3 h-3 rounded-full bg-gradient-to-r from-[var(--red-belt)] to-[var(--red-belt)]/70 mt-2 group-hover:scale-125 transition-transform duration-300 shadow-lg"></div>
-      <div>
-        <h4 className="font-bold text-lg text-white mb-2">{title}</h4>
-        <p className="text-white/80 leading-relaxed">{description}</p>
-      </div>
-    </div>
-  );
-}
+// Componente removido - não utilizado
 
 function ScrollArrow({ targetId }: { targetId: string }) {
   const [visible, setVisible] = useState(false);
@@ -89,32 +79,8 @@ function ScrollArrow({ targetId }: { targetId: string }) {
 }
 
 export default function Home() {
-  const { trackPurchase, trackInitiateCheckout, trackLead, trackViewContent } = useFacebookPixel();
-  // Commented out unused variables
-  /* const floatingCards = [
-    {
-      title: "Seu Progresso",
-      value: "17",
-      subtitle: "Semanas de treino",
-      color: "text-[var(--red-belt)]",
-    },
-    {
-      title: "Bônus Exclusivo",
-      value: "+6",
-      subtitle: "Semanas extras",
-      color: "text-[var(--red-belt)]",
-    },
-    {
-      title: "Suporte",
-      value: "24/7",
-      subtitle: "Grupo Telegram",
-      color: "text-[var(--red-belt)]",
-    },
-  ]; */
-  // const [cardIdx, setCardIdx] = useState(0);
-  // const prevCard = () => setCardIdx((prev) => (prev === 0 ? floatingCards.length - 1 : prev - 1));
-  // const nextCard = () => setCardIdx((prev) => (prev === floatingCards.length - 1 ? 0 : prev + 1));
-
+  const { trackInitiateCheckout, trackLead, trackViewContent } = useFacebookPixel();
+  
   // Galeria de imagens do autor
   const galeriaImgs = [
     "/images/galeria-1.jpeg",

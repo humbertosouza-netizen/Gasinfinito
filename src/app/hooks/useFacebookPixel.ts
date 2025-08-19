@@ -5,12 +5,16 @@ import { FACEBOOK_PIXEL_CONFIG, FACEBOOK_EVENTS } from '../config/facebookPixel'
 
 declare global {
   interface Window {
-    fbq: any;
+    fbq: (
+      event: string,
+      action: string,
+      parameters?: Record<string, unknown>
+    ) => void;
   }
 }
 
 export const useFacebookPixel = () => {
-  const trackEvent = useCallback((eventName: string, parameters?: any) => {
+  const trackEvent = useCallback((eventName: string, parameters?: Record<string, unknown>) => {
     if (typeof window !== 'undefined' && window.fbq) {
       window.fbq('track', eventName, parameters);
     }

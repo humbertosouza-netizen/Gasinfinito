@@ -5,7 +5,11 @@ import { FACEBOOK_PIXEL_CONFIG } from '../config/facebookPixel';
 
 declare global {
   interface Window {
-    fbq: any;
+    fbq: (
+      event: string,
+      action: string,
+      parameters?: Record<string, unknown>
+    ) => void;
   }
 }
 
@@ -30,8 +34,8 @@ export default function FacebookPixel() {
     // Adiciona o noscript fallback
     const noscript = document.createElement('noscript');
     const img = document.createElement('img');
-    img.height = '1';
-    img.width = '1';
+    img.height = 1;
+    img.width = 1;
     img.style.display = 'none';
     img.src = `https://www.facebook.com/tr?id=${FACEBOOK_PIXEL_CONFIG.PIXEL_ID}&ev=PageView&noscript=1`;
     noscript.appendChild(img);
