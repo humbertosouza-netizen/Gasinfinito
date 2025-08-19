@@ -1,6 +1,7 @@
 'use client';
 import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
+import { useFacebookPixel } from "./hooks/useFacebookPixel";
 
 type SectionProps = React.HTMLAttributes<HTMLElement> & {
   children: React.ReactNode;
@@ -88,6 +89,7 @@ function ScrollArrow({ targetId }: { targetId: string }) {
 }
 
 export default function Home() {
+  const { trackPurchase, trackInitiateCheckout, trackLead, trackViewContent } = useFacebookPixel();
   // Commented out unused variables
   /* const floatingCards = [
     {
@@ -129,6 +131,17 @@ export default function Home() {
   const prevImg = () => setModalIdx((prev) => (prev === 0 ? galeriaImgs.length - 1 : prev - 1));
   const nextImg = () => setModalIdx((prev) => (prev === galeriaImgs.length - 1 ? 0 : prev + 1));
 
+  // Função para rastrear clique no CTA
+  const handleCTAClick = () => {
+    trackInitiateCheckout();
+    trackLead();
+  };
+
+  // Função para rastrear visualização do conteúdo
+  useEffect(() => {
+    trackViewContent();
+  }, [trackViewContent]);
+
   return (
     <div className="font-sans min-h-screen flex flex-col bg-[var(--black-belt)] text-[var(--white-belt)] relative overflow-x-hidden">
       {/* Background Effects */}
@@ -163,7 +176,7 @@ export default function Home() {
         </p>
         
         <div className="flex flex-col sm:flex-row gap-6 justify-center mb-16">
-          <a href="https://pay.hotmart.com/U100991696O?off=npmpk04i" target="_blank" rel="noopener noreferrer" className="group bg-gradient-to-r from-white to-white/95 text-[var(--red-belt)] font-black py-5 px-12 rounded-2xl text-2xl shadow-2xl border-2 border-transparent hover:from-[var(--red-belt)] hover:to-[var(--red-belt)]/90 hover:text-white hover:border-white/20 transition-all duration-500 transform hover:scale-105 hover:shadow-3xl">
+          <a href="https://pay.hotmart.com/U100991696O?off=npmpk04i" target="_blank" rel="noopener noreferrer" className="group bg-gradient-to-r from-white to-white/95 text-[var(--red-belt)] font-black py-5 px-12 rounded-2xl text-2xl shadow-2xl border-2 border-transparent hover:from-[var(--red-belt)] hover:to-[var(--red-belt)]/90 hover:text-white hover:border-white/20 transition-all duration-500 transform hover:scale-105 hover:shadow-3xl" onClick={handleCTAClick}>
             <span className="inline-block group-hover:scale-110 transition-transform duration-300">QUERO MINHA PLANILHA AGORA – De R$ 97,00 por apenas R$ 29,90</span>
           </a>
         </div>
@@ -461,7 +474,7 @@ export default function Home() {
             📌 Treine onde quiser. Evolua como poucos.
           </p>
           
-          <a id="cta" href="https://pay.hotmart.com/U100991696O?off=npmpk04i" target="_blank" rel="noopener noreferrer" className="group inline-block bg-gradient-to-r from-[var(--red-belt)] to-[var(--red-belt)]/90 text-white font-black py-4 sm:py-6 px-8 sm:px-16 rounded-2xl text-xl sm:text-3xl shadow-2xl hover:from-white hover:to-white/95 hover:text-[var(--red-belt)] border-4 border-transparent hover:border-[var(--red-belt)] transition-all duration-500 transform hover:scale-110 hover:shadow-3xl">
+          <a id="cta" href="https://pay.hotmart.com/U100991696O?off=npmpk04i" target="_blank" rel="noopener noreferrer" className="group inline-block bg-gradient-to-r from-[var(--red-belt)] to-[var(--red-belt)]/90 text-white font-black py-4 sm:py-6 px-8 sm:px-16 rounded-2xl text-xl sm:text-3xl shadow-2xl hover:from-white hover:to-white/95 hover:text-[var(--red-belt)] border-4 border-transparent hover:border-[var(--red-belt)] transition-all duration-500 transform hover:scale-110 hover:shadow-3xl" onClick={handleCTAClick}>
             <span className="inline-block group-hover:scale-110 transition-transform duration-300">QUERO COMEÇAR AGORA</span>
           </a>
         </Card>
@@ -477,7 +490,7 @@ export default function Home() {
               👊 Clique abaixo e garanta agora sua planilha:
             </p>
             
-            <a href="https://pay.hotmart.com/U100991696O?off=npmpk04i" target="_blank" rel="noopener noreferrer" className="group inline-block bg-white text-[var(--red-belt)] font-black py-4 sm:py-6 px-6 sm:px-12 rounded-2xl text-xl sm:text-2xl shadow-2xl border-4 border-transparent hover:bg-[var(--red-belt)] hover:text-white hover:border-white/20 transition-all duration-500 transform hover:scale-105 hover:shadow-3xl mb-6 break-words w-full sm:w-auto">
+            <a href="https://pay.hotmart.com/U100991696O?off=npmpk04i" target="_blank" rel="noopener noreferrer" className="group inline-block bg-white text-[var(--red-belt)] font-black py-4 sm:py-6 px-6 sm:px-12 rounded-2xl text-xl sm:text-2xl shadow-2xl border-4 border-transparent hover:bg-[var(--red-belt)] hover:text-white hover:border-white/20 transition-all duration-500 transform hover:scale-105 hover:shadow-3xl mb-6 break-words w-full sm:w-auto" onClick={handleCTAClick}>
               <span className="inline-block group-hover:scale-110 transition-transform duration-300">QUERO COMEÇAR AGORA - De R$ 97,00 por apenas R$ 29,90</span>
             </a>
             

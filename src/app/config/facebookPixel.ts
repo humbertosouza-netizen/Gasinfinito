@@ -1,0 +1,20 @@
+export const FACEBOOK_PIXEL_CONFIG = {
+  PIXEL_ID: process.env.NEXT_PUBLIC_FACEBOOK_PIXEL_ID || '1751428175392069',
+  ACCESS_TOKEN: process.env.FACEBOOK_ACCESS_TOKEN || 'EAALl8dnIGZCABPJ8r51ygNU70ATWjLl9y9CZALsZAqxoAEugtl7YfqMRV6W9dCFwFBtoiwsMj9u2b7n7KJZCsfF3qetP4QZCstu7x4HeVeutKvFD9s23ztmICqIFIrgrXs3QLZBugX4arXXThLTQLf3je4Gc3Kk3CFqY7eHlH4HEEVKfVexbHVvO5tZBAKtPZCGLswZDZD',
+  PRODUCT_NAME: process.env.NEXT_PUBLIC_PRODUCT_NAME || 'Gás Infinito - Planilha de Treino',
+  PRODUCT_CATEGORY: 'product',
+  PRODUCT_PRICE: parseFloat(process.env.NEXT_PUBLIC_PRODUCT_PRICE || '29.90'),
+  CURRENCY: process.env.NEXT_PUBLIC_PRODUCT_CURRENCY || 'BRL',
+  OFFER_PRICE: parseFloat(process.env.NEXT_PUBLIC_PRODUCT_PRICE || '29.90'),
+  ORIGINAL_PRICE: parseFloat(process.env.NEXT_PUBLIC_PRODUCT_ORIGINAL_PRICE || '97.00'),
+};
+
+export const FACEBOOK_EVENTS = {
+  PAGE_VIEW: 'PageView',
+  VIEW_CONTENT: 'ViewContent',
+  ADD_TO_CART: 'AddToCart',
+  INITIATE_CHECKOUT: 'InitiateCheckout',
+  PURCHASE: 'Purchase',
+  LEAD: 'Lead',
+  COMPLETE_REGISTRATION: 'CompleteRegistration',
+} as const;
