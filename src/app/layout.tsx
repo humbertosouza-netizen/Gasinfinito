@@ -16,6 +16,14 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "O Segredo do GÁS INFINITO no Tatame",
   description: "Landing page premium do produto GÁS INFINITO – Planilha de 17 Semanas + Bônus 6 Semanas.",
+  icons: {
+    icon: [
+      { url: '/favicon.ico' },
+      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+    ],
+    shortcut: '/favicon.ico',
+    apple: '/favicon.ico',
+  },
 };
 
 export default function RootLayout({
@@ -27,6 +35,8 @@ export default function RootLayout({
     <html lang="pt-BR">
       <head>
         <FacebookPixel />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="apple-touch-icon" href="/favicon.ico" />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
